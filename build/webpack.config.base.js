@@ -29,5 +29,8 @@ module.exports = {
         loaders: ["babel-loader"]
       }
     ]
+  },
+  resolve: {
+    extensions: ["js", "ts", "tsx", "json"]
   }
 };

@@ -7,7 +7,7 @@ module.exports = webpackMerge(baseConfig, {
   entry: {
     app: [
       "webpack-hot-middleware/client?path=/__hmr&reload=true",
-      "./src/main/app.js"
+      "./src/main/index.tsx"
     ]
   },
   output: {
@@ -18,6 +18,9 @@ module.exports = webpackMerge(baseConfig, {
   devtool: "inline-source-map",
   plugins: [new webpack.HotModuleReplacementPlugin()],
   resolve: {
-    extensions: [".js", ".ts", ".tsx"]
+    extensions: [".js", ".ts", ".tsx"],
+    alias: {
+      "react-dom": "@hot-loader/react-dom"
+    }
   }
 });

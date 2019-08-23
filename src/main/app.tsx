@@ -1,4 +1,4 @@
-// import { hot } from "react-hot-loader";
+import { hot } from "react-hot-loader/root";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
@@ -8,10 +8,12 @@ class App extends React.Component<any, any> {
   }
 
   public render() {
-    return <div>app</div>;
+    return <div>asdfadfdsddddddddssssfs</div>;
   }
 }
 
-export default App;
+// ReactDOM.render(<App />, document.getElementById("app"));
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default hot(App);
+
+// export default App;
