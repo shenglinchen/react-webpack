@@ -1,6 +1,5 @@
 import { hot } from "react-hot-loader/root";
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 
 class App extends React.Component<any, any> {
   constructor(props: any) {
@@ -8,7 +7,7 @@ class App extends React.Component<any, any> {
   }
 
   public render() {
-    return <div>asdfadfdsdjjjj</div>;
+    return <div>app</div>;
   }
 }
 
