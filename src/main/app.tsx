@@ -8,12 +8,8 @@ class App extends React.Component<any, any> {
   }
 
   public render() {
-    return <div>asdfadfdsddddddddssssfs</div>;
+    return <div>asdfadfdsdjjjj</div>;
   }
 }
 
-// ReactDOM.render(<App />, document.getElementById("app"));
-
 export default hot(App);
-
-// export default App;
