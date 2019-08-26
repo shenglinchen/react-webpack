@@ -3,6 +3,8 @@ const os = require("os");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Happypack = require("happypack");
 const happypackThreaPool = Happypack.ThreadPool({ size: os.cpus().length });
+const utils = require("./utils");
+console.log(utils);
 
 module.exports = {
   mode: "production",
@@ -71,6 +73,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["js", "ts", "tsx", "json"]
+    extensions: ["js", "ts", "tsx", "json"],
+    alias: {
+      "@": utils.resolve("src"),
+      "@/components": utils.resolve("src/components"),
+      "@/modules": utils.resolve("src/modules"),
+      "@/store": utils.resolve("src/store")
+    }
   }
 };
