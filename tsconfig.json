@@ -6,6 +6,15 @@
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    // 根路径指向的位置
+    "baseUrl": ".",
+    // 配置 webpack 中的快捷路径
+    "paths": {
+      "@/*": ["src/*"],
+      "@/components/*": ["src/components/*"],
+      "@/modules/*": ["src/modules/*"],
+      "@/store/*": ["src/story/*"]
+    }
   }
 }
