@@ -5,6 +5,7 @@ const Happypack = require("happypack");
 const happypackThreaPool = Happypack.ThreadPool({ size: os.cpus().length });
 const utils = require("./utils");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -48,6 +49,10 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin({
       // 由于 ts-loader 搭配 happypack 时，不会打印语义错误
       checkSyntacticErrors: true
+    }),
+    new ProgressBarPlugin({
+      format: ":bar:percent---冲冲冲",
+      complete: "✈️   "
     })
   ],
   module: {

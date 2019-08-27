@@ -11,7 +11,6 @@ class App extends React.Component<any, any> {
     return (
       <>
         {this.showName("App")}
-        {this.showName(1)}
         <Index />
       </>
     );
