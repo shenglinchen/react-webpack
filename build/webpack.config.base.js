@@ -6,6 +6,8 @@ const happypackThreaPool = Happypack.ThreadPool({ size: os.cpus().length });
 const utils = require("./utils");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
@@ -53,6 +55,10 @@ module.exports = {
     new ProgressBarPlugin({
       format: ":bar:percent---冲冲冲",
       complete: "✈️   "
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerPort: 9999,
+      openAnalyzer: false
     })
   ],
   module: {
