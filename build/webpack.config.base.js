@@ -45,7 +45,10 @@ module.exports = {
         }
       ]
     }),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin({
+      // 由于 ts-loader 搭配 happypack 时，不会打印语义错误
+      checkSyntacticErrors: true
+    })
   ],
   module: {
     rules: [
