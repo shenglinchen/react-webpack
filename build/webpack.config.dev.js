@@ -2,6 +2,9 @@ const webpackMerge = require("webpack-merge");
 const baseConfig = require("./webpack.config.base");
 const path = require("path");
 const webpack = require("webpack");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 module.exports = webpackMerge(baseConfig, {
   mode: "development",
   entry: {
@@ -16,7 +19,18 @@ module.exports = webpackMerge(baseConfig, {
     publicPath: "/"
   },
   devtool: "inline-source-map",
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerPort: 9999,
+      openAnalyzer: false
+    }),
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: ["构建成功----冲啊   🚣"]
+      }
+    })
+  ],
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
