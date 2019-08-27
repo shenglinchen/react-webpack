@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Happypack = require("happypack");
 const happypackThreaPool = Happypack.ThreadPool({ size: os.cpus().length });
 const utils = require("./utils");
-console.log(utils);
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -44,7 +44,8 @@ module.exports = {
           loader: "babel-loader"
         }
       ]
-    })
+    }),
+    new ForkTsCheckerWebpackPlugin()
   ],
   module: {
     rules: [

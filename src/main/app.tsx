@@ -3,12 +3,18 @@ import * as React from "react";
 import Index from "@/modules/index";
 
 class App extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
+  public showName = (name: string) => {
+    return <div>{name}</div>;
+  };
 
   public render() {
-    return <Index />;
+    return (
+      <>
+        {this.showName("App")}
+        {this.showName(1)}
+        <Index />
+      </>
+    );
   }
 }
 
