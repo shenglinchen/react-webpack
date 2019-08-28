@@ -9,9 +9,9 @@ const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  // entry: {
-  //   app: "./src/main/app.js"
-  // },
+  entry: {
+    app: "./src/main/index.tsx"
+  },
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "[name].bundle.js"
@@ -61,17 +61,6 @@ module.exports = {
         test: /\.tsx$/,
         exclude: "/node_module",
         use: "happypack/loader?id=tsx"
-        // use: [
-        //   {
-        //     loader: "babel-loader"
-        //   },
-        //   {
-        //     loader: "ts-loader",
-        //     options: {
-        //       transpileOnly: true
-        //     }
-        //   }
-        // ]
       },
       {
         test: /\.js$/,
@@ -79,10 +68,15 @@ module.exports = {
         // loaders: ["babel-loader"]
         use: "happypack/loader?id=js"
       }
+      // {
+      //   test: /\.less$/,
+      //   exclude: "/node_modules"
+      //   // use: "happypack/loader?id"
+      // }
     ]
   },
   resolve: {
-    extensions: ["js", "ts", "tsx", "json"],
+    extensions: [".js", ".ts", ".tsx", ".json"],
     alias: {
       "@": utils.resolve("src"),
       "@/components": utils.resolve("src/components"),
