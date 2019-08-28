@@ -59,8 +59,8 @@ module.exports = webpackMerge(baseConfig, {
   plugins: [
     // 将 css 从 js 中提取出来作为一个单独的文件
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
+      filename: "css/[name].[hash]p.css",
+      chunkFilename: "css/[id].[chunkhash]p.css",
       ignoreOrder: false
     })
   ]
