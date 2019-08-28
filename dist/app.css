@@ -1,0 +1,10 @@
+#app {
+  height: 500px;
+  background-color: #ccc;
+  transform: translate(0, 100px);
+}
+
+input {
+  width: 400px;
+}
+
