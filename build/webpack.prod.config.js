@@ -1,6 +1,9 @@
 const baseConfig = require("./webpack.base.config");
 const webpackMerge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
 module.exports = webpackMerge(baseConfig, {
   mode: "production",
@@ -70,6 +73,29 @@ module.exports = webpackMerge(baseConfig, {
       filename: "css/[name].[hash]p.css",
       chunkFilename: "css/[id].[chunkhash]p.css",
       ignoreOrder: false
+    }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        map: false
+      }
     })
-  ]
+  ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          compress: {
+            drop_console: true
+          }
+        }
+      }),
+      new CompressionWebpackPlugin({
+        compressionOptions: {
+          numiterations: 15
+        },
+        algorithm: "gzip"
+      })
+    ]
+  }
 });

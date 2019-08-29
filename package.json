@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "build": "node build/prod-build.js",
-    "dev": "node build/dev-server.js"
+    "dev": "node build/dev-server.js",
+    "deploy": "node server/bin/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

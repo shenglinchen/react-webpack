@@ -17,7 +17,7 @@ webpack(prodConfig, (err, stats) => {
 
   console.log(
     chalk.yellow(
-      "构建的文件 index.html 直接打开的话无法获取到数据 \n 请使用 yarn run server 起服务"
+      "构建的文件 index.html 直接打开的话无法获取到数据 \n 请使用 yarn run deploy 起服务"
     )
   );
 });
