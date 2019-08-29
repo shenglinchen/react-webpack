@@ -11,8 +11,7 @@ module.exports = webpackMerge(baseConfig, {
   entry: {
     app: [
       "webpack-hot-middleware/client?path=/__hmr&reload=true",
-      // "./src/main/index.tsx"
-      "./src/main/index.js"
+      "./src/main/index.tsx"
     ]
   },
   output: {
@@ -78,7 +77,7 @@ module.exports = webpackMerge(baseConfig, {
       },
       {
         test: /\.less$/,
-        exclude: "/node_modules",
+        exclude: /node_modules/,
         use: [
           // 将 css 分离为单独文件，
           {

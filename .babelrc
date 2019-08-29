@@ -18,15 +18,15 @@
     [
       "react-css-modules",
       {
-        "generateScopedName": "[path]-[local]-[hash:base64:5]",
+        "generateScopedName": "[path][name]__[local]--[hash:base64:5]",
         "exclude": "node_modules",
         "handleMissingStyleName": "warn",
         "webpackHotModuleReloading": true,
-        // "filetypes": {
-        //   ".less": {
-        //     "syntax": "postcss-less"
-        //   }
-        // }
+        "filetypes": {
+          ".less": {
+            "syntax": "postcss-less"
+          }
+        }
       }
     ]
   ]

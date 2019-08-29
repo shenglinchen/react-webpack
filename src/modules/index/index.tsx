@@ -1,6 +1,6 @@
 import * as React from "react";
-import "./index.css";
-// import "./index.less";
+import "./index.less";
+// import "./index.css";
 
 class Index extends React.Component<any, any> {
   render() {
