@@ -7,6 +7,7 @@ const utils = require("./utils");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -54,6 +55,11 @@ module.exports = {
     new ProgressBarPlugin({
       format: ":bar:percent---冲冲冲",
       complete: "✈️   "
+    }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        map: false
+      }
     })
   ],
   module: {
