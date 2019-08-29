@@ -8,6 +8,7 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -100,6 +101,12 @@ module.exports = {
             drop_console: true
           }
         }
+      }),
+      new CompressionWebpackPlugin({
+        compressionOptions: {
+          numiterations: 15
+        },
+        algorithm: "gzip"
       })
     ]
   }
