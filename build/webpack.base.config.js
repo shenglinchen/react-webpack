@@ -6,6 +6,7 @@ const happypackThreaPool = Happypack.ThreadPool({ size: os.cpus().length });
 const utils = require("./utils");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -83,5 +84,17 @@ module.exports = {
       "@/modules": utils.resolve("src/modules"),
       "@/store": utils.resolve("src/store")
     }
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          compress: {
+            drop_console: true
+          }
+        }
+      })
+    ]
   }
 };
