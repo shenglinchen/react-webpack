@@ -1,8 +1,33 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+      "@babel/preset-react",
+      
   ],
-  "plugins": ["react-hot-loader/babel"]
-
+  "plugins": [
+    "react-hot-loader/babel",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-react-jsx",
+    [
+      "react-css-modules",
+      {
+        "generateScopedName": "[path]-[local]-[hash:base64:5]",
+        "exclude": "node_modules",
+        "handleMissingStyleName": "warn",
+        "webpackHotModuleReloading": true,
+        // "filetypes": {
+        //   ".less": {
+        //     "syntax": "postcss-less"
+        //   }
+        // }
+      }
+    ]
+  ]
 }

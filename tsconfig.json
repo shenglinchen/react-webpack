@@ -7,7 +7,11 @@
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
-    "jsx": "react",
+    // 配置 css-module 时需要配置正确。因为 babel-plugin-react-css-modules 的工作原理会遍历 jsx 中的元素
+    // 我们会先使用 ts-loader 转换 tsx 文件后才给 babel-loader 转换，如果此时我们使用的是 jsx: react ，
+    // ts-loader 会把 tsx 中的<div /> 转换成 React.createElement("div")。而如果是 jsx: preserve 的话
+    // 就是 <div /> => <div />，这样 babel-loader 中的 babel-plugin-react-css-modules 才能生效
+    "jsx": "preserve",
     "allowJs": true,
     "moduleResolution": "node",
     // 根路径指向的位置
