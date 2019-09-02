@@ -1,6 +1,16 @@
 import * as React from "react";
 import "./index.less";
-// import "./index.css";
+import { addTodo, filter } from "@/store/action";
+import store from "@/store/store";
+
+store.dispatch(
+  addTodo({
+    text: "ddd",
+    completed: false
+  })
+);
+
+console.log(store.getState());
 
 class Index extends React.Component<any, any> {
   render() {

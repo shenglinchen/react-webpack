@@ -63,6 +63,11 @@ module.exports = {
         use: "happypack/loader?id=tsx"
       },
       {
+        test: /\.ts$/,
+        exclude: "/node_module",
+        use: "happypack/loader?id=tsx"
+      },
+      {
         test: /\.js$/,
         exclude: "/node_module",
         // loaders: ["babel-loader"]
