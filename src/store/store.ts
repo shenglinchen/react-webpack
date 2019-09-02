@@ -1,7 +1,10 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 // import todoApp from "./reducer";
 import todoApp from "./reducer1";
 
-let store = createStore(todoApp);
-
+const store = createStore(
+  todoApp,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+);
 export default store;

@@ -9,7 +9,6 @@ const initialState = {
 };
 
 const addTodos = (state: any[], action: any) => {
-  debugger;
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.todo];
@@ -19,7 +18,6 @@ const addTodos = (state: any[], action: any) => {
 };
 
 const filter = (state: any[], action: any) => {
-  debugger;
   switch (action.type) {
     case FILTER:
       return state.map((ele: any) => {
